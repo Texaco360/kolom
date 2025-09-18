@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import List
-from models.SectionData import SectionDTO , SegmentDTO, Point, GrossSectionCalculator
+from dataTransferObjects.SectionData import SectionDTO , SegmentDTO, Point
+from services.SectionCalculator import GrossSectionCalculator
 
 
 # Assuming these classes are already defined:

@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# Environment
+.env
+venv/
+ENV/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test and coverage
+htmlcov/
+.coverage
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage.xml
+test-results/
+
+# Misc
+*.log
+*.bak
+*.swp
+*.tmp
+*.orig
+
+# Icon
+kolom.ico
