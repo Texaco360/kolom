@@ -2,11 +2,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-  "name": "Run kolomGui v0.1.pyw",
+  "name": "Run Section Properties",
   "type": "debugpy",
   "request": "launch",
-  "program": "${workspaceFolder}/kolomGui v0.1.pyw",
-  "console": "internalConsole"
+  "program": "${workspaceFolder}/sectionproperties.py",
+  "console": "integratedTerminal"
     }
   ]
 }
