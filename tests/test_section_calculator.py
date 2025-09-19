@@ -1,7 +1,7 @@
 
 import pytest
 from typing import List
-from dataTransferObjects.SectionData import SectionDTO , SegmentDTO, Point, ResultsDTO
+from dataTransferObjects.SectionData import SectionDTO , SegmentDTO, Point, ResultsDTO, Corner
 from services.SectionCalculator import GrossSectionCalculator
 
 def results_dto_equal(a, b):
@@ -41,3 +41,8 @@ def test_it_calculate_a_section():
     print(result.centroid.y)
 
     assert results_dto_equal(result, expected_result)
+
+def test_it_calculates_a_corner():
+    corner = Corner(5,10,2)
+    assert corner.radius == 2.0;
+    

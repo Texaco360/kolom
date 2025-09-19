@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 *.pyc
 .pytest_cache/
+.tests/__pycache__/
 
 # VS Code
 .vscode/
@@ -37,3 +38,5 @@ test-results/
 
 # Icon
 kolom.ico
+
+

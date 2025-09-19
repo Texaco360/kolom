@@ -5,6 +5,10 @@ class Point:
     y: float
     z: float
 
+@dataclass
+class Corner(Point):
+    radius: float
+
 class SegmentDTO:
     def __init__(self, start_pt: Point, end_pt: Point, thickness: float):
         self.start_pt = start_pt
