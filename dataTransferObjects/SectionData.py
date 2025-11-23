@@ -29,5 +29,13 @@ class ResultsDTO:
     centroid: Point
     inertia_y: float
     inertia_z: float
+    inertia_yz: float
+
+@dataclass
+class SegmentPropertiesDTO:
+    length: float
+    area: float
+    mid_y: float
+    mid_z: float
 
 #mypy checks the types

@@ -3,6 +3,7 @@ import pytest
 from typing import List
 from dataTransferObjects.SectionData import SectionDTO , SegmentDTO, Point, ResultsDTO, Corner
 from services.SectionCalculator import GrossSectionCalculator
+from services.Section import Section
 
 def results_dto_equal(a, b):
     from dataclasses import asdict
@@ -32,13 +33,15 @@ def test_it_calculate_a_section():
     segment = SegmentDTO(points[0], points[1], thickness)
     section.add_segment(segment)
 
-    result = GrossSectionCalculator.calculate(section)
+    calculator = Section(section)
+    result = calculator.get_section_properties()
 
     inertia_y = 4*(10)**3 /12
 
-    expected_result = ResultsDTO(float(40), Point(float(0), float(5)), inertia_y, float(0))
+    expected_result = ResultsDTO(float(40), Point(float(0), float(5)), inertia_y, float(0), float(0))
 
     print(result.centroid.y)
+    print(expected_result.centroid.y)
 
     assert results_dto_equal(result, expected_result)
 
