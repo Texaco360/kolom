@@ -11,6 +11,8 @@ class Section:
     _inertia_yy: float 
     _inertia_zz: float
     _inertia_yz: float
+    _p_inertia_ksi: float
+    _p_inertia_nu: float
     _centroid: Point
     _sectionData: SectionDTO
     _translated_section: SectionDTO
@@ -37,6 +39,7 @@ class Section:
         self._calculate_centroid()
         self._translate_section()
         self._calculate_inertia()
+        self._calculate_principal_inertia()
 
     def get_section_properties(self) -> ResultsDTO:
         return ResultsDTO(
@@ -87,4 +90,7 @@ class Section:
            self._inertia_zz += segment.get_inertia_zz()
            self._inertia_yz += segment.get_inertia_yz()
 
-        
+    def _calculate_principal_inertia(self) -> None:
+        delta = (( self._inertia_yy - self._inertia_zz) ** 2 + 4 * self._inertia_yz ** 2) ** 0.5
+        self._p_inertia_ksi = ( self._inertia_yy + self._inertia_zz) / 2 + delta / 2
+        self._p_inertia_nu = ( self._inertia_yy + self._inertia_zz) / 2 - delta / 2
