@@ -38,7 +38,7 @@ def test_it_calculate_a_section():
 
     inertia_y = 4*(10)**3 /12
 
-    expected_result = ResultsDTO(float(40), Point(float(0), float(5)), inertia_y, float(0), float(0))
+    expected_result = ResultsDTO(float(40), Point(float(0), float(5)), inertia_y, float(0), float(0),float(0), float(0), float(0))
 
     print(result.centroid.y)
     print(expected_result.centroid.y)

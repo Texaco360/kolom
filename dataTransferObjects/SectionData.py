@@ -30,6 +30,9 @@ class ResultsDTO:
     inertia_y: float
     inertia_z: float
     inertia_yz: float
+    p_inertia_ksi: float = 0.0
+    p_inertia_nu: float = 0.0
+    alfa: float = 0.0
 
 @dataclass
 class SegmentPropertiesDTO:
