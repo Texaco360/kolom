@@ -38,12 +38,38 @@ def test_it_calculate_a_section():
 
     inertia_y = 4*(10)**3 /12
 
-    expected_result = ResultsDTO(float(40), Point(float(0), float(5)), inertia_y, float(0), float(0),float(0), float(0), float(0))
+    expected_result = ResultsDTO(float(40), Point(float(0), float(5)), inertia_y, float(0),float(0),inertia_y, float(0))
 
     print(result.centroid.y)
     print(expected_result.centroid.y)
 
     assert results_dto_equal(result, expected_result)
+
+def test_it_calculates_alpha():
+    points:list[Point] = []
+    points.append(Point(-100,60))
+    points.append(Point(-100,0))
+    points.append(Point(100,0))
+    points.append(Point(100,-60))
+
+    thickness = float(2);
+
+    point1 = points.pop();
+    section = SectionDTO()
+
+    for i in range(3):
+        point2 = points.pop()
+        segment = SegmentDTO(point1, point2, thickness)
+        section.add_segment(segment)
+        point1 = point2
+
+    calculator = Section(section)
+    result = calculator.get_section_properties()
+
+    expected_alfa = -11.309932474020213 * (3.141592653589793 / 180.0)  # Convert degrees to radians
+
+    assert result.alpha == pytest.approx(expected_alfa, abs=1e-2)
+    
 
 def test_it_calculates_a_corner():
     corner = Corner(5,10,2)

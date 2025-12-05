@@ -44,11 +44,11 @@ class SegmentCalculator:
         self._mid_z = (self._segment.start_pt.z + self._segment.end_pt.z) / 2
 
     def _calculate_inertia_yy(self) -> None:
-        inertia_zz_local = self._segment.thickness * (self._segment.end_pt.z - self._segment.start_pt.z)**3 / 12
+        inertia_zz_local = self._segment.thickness * abs(self._segment.end_pt.z - self._segment.start_pt.z)**3 / 12
         self._inertia_yy = inertia_zz_local + self._mid_z**2 * self._area
 
     def _calculate_inertia_zz(self) -> None:
-        inertia_yy_local = self._segment.thickness * (self._segment.end_pt.y - self._segment.start_pt.y)**3 / 12
+        inertia_yy_local = self._segment.thickness * abs(self._segment.end_pt.y - self._segment.start_pt.y)**3 / 12
         self._inertia_zz = inertia_yy_local + self._mid_y**2 * self._area
 
     def _calculate_inertia_yz(self) -> None:
